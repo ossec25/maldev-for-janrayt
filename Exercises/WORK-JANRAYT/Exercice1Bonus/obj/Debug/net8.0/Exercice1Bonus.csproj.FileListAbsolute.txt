@@ -1,0 +1,14 @@
+C:\Exercices\Exercice1Bonus\bin\Debug\net8.0\Exercice1Bonus.exe
+C:\Exercices\Exercice1Bonus\bin\Debug\net8.0\Exercice1Bonus.deps.json
+C:\Exercices\Exercice1Bonus\bin\Debug\net8.0\Exercice1Bonus.runtimeconfig.json
+C:\Exercices\Exercice1Bonus\bin\Debug\net8.0\Exercice1Bonus.dll
+C:\Exercices\Exercice1Bonus\bin\Debug\net8.0\Exercice1Bonus.pdb
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\Exercice1Bonus.GeneratedMSBuildEditorConfig.editorconfig
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\Exercice1Bonus.AssemblyInfoInputs.cache
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\Exercice1Bonus.AssemblyInfo.cs
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\Exercice1Bonus.csproj.CoreCompileInputs.cache
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\Exercice1Bonus.dll
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\refint\Exercice1Bonus.dll
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\Exercice1Bonus.pdb
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\Exercice1Bonus.genruntimeconfig.cache
+C:\Exercices\Exercice1Bonus\obj\Debug\net8.0\ref\Exercice1Bonus.dll
