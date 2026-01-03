@@ -1,0 +1,14 @@
+C:\Exercices\Exercice1\obj\Debug\net8.0\Exercice1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Exercices\Exercice1\obj\Debug\net8.0\Exercice1.AssemblyInfoInputs.cache
+C:\Exercices\Exercice1\obj\Debug\net8.0\Exercice1.AssemblyInfo.cs
+C:\Exercices\Exercice1\obj\Debug\net8.0\Exercice1.csproj.CoreCompileInputs.cache
+C:\Exercices\Exercice1\obj\Debug\net8.0\refint\Exercice1.dll
+C:\Exercices\Exercice1\obj\Debug\net8.0\Exercice1.pdb
+C:\Exercices\Exercice1\bin\Debug\net8.0\Exercice1.exe
+C:\Exercices\Exercice1\bin\Debug\net8.0\Exercice1.deps.json
+C:\Exercices\Exercice1\bin\Debug\net8.0\Exercice1.runtimeconfig.json
+C:\Exercices\Exercice1\bin\Debug\net8.0\Exercice1.dll
+C:\Exercices\Exercice1\bin\Debug\net8.0\Exercice1.pdb
+C:\Exercices\Exercice1\obj\Debug\net8.0\Exercice1.dll
+C:\Exercices\Exercice1\obj\Debug\net8.0\Exercice1.genruntimeconfig.cache
+C:\Exercices\Exercice1\obj\Debug\net8.0\ref\Exercice1.dll
